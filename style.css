@@ -21,6 +21,33 @@ body {
   background: radial-gradient(circle at 50% 48%, #0e0d0d 0%, #050505 100%);
 }
 
+/* Edge Cinematic Vignette Overlay */
+.vignette-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, transparent 45%, rgba(0, 0, 0, 0.85) 100%);
+}
+
+/* Soft Interactive Candlelight Glow */
+.candlelight-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.12) 0%, rgba(217, 119, 6, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+  opacity: 0.95;
+}
+
 /* Full-Screen Centered Viewport */
 .viewport {
   display: flex;
@@ -32,7 +59,7 @@ body {
   height: 100dvh;
   padding: 1.25rem 1rem;
   position: relative;
-  z-index: 1;
+  z-index: 10;
 }
 
 /* Top Text: Thin, elegant, subtle soft off-white */
@@ -42,11 +69,11 @@ body {
   font-style: normal;
   font-size: clamp(1rem, 2.2vw, 1.25rem);
   letter-spacing: 0.14em;
-  color: rgba(241, 235, 217, 0.72);
+  color: rgba(241, 235, 217, 0.75);
   text-align: center;
   margin-bottom: 1.5rem;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-  animation: fadeIn 1.5s ease-out forwards;
+  animation: fadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Note Wrapper: Flexible container that holds full image */
@@ -56,7 +83,7 @@ body {
   justify-content: center;
   max-width: 90vw;
   max-height: 70vh;
-  animation: fadeIn 1.5s ease-out 0.2s backwards;
+  animation: fadeIn 1.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
 }
 
 /* Handwritten Image Rules - Strictly complete, uncropped, centered */
@@ -69,9 +96,9 @@ body {
   border-radius: 8px;
   display: block;
   box-shadow: 
-    0 20px 50px rgba(0, 0, 0, 0.9),
+    0 25px 60px rgba(0, 0, 0, 0.95),
     0 0 0 1px rgba(255, 255, 255, 0.05),
-    0 0 25px rgba(217, 119, 6, 0.03);
+    0 0 30px rgba(217, 119, 6, 0.04);
   user-select: none;
   -webkit-user-drag: none;
 }
@@ -86,14 +113,14 @@ body {
   letter-spacing: 0.15em;
   color: rgba(241, 235, 217, 0.45);
   text-align: center;
-  animation: captionFade 1.8s ease-out 0.4s backwards;
+  animation: captionFade 2s ease-out 0.6s backwards;
 }
 
 /* Smooth Entrance Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;

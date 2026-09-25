@@ -12,6 +12,12 @@
 </head>
 <body>
 
+  <!-- Edge Cinematic Vignette Overlay -->
+  <div class="vignette-overlay" aria-hidden="true"></div>
+
+  <!-- Interactive Candlelight Torch Follow Glow -->
+  <div class="candlelight-glow" id="candlelight" aria-hidden="true"></div>
+
   <!-- Full-screen centered viewport -->
   <main class="viewport">
     
@@ -33,5 +39,34 @@
 
   </main>
 
+  <script>
+    // Smooth interactive candlelight cursor/touch follow
+    const light = document.getElementById('candlelight');
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
+
+    function updateLightPosition(e) {
+      if (e.touches && e.touches[0]) {
+        targetX = e.touches[0].clientX;
+        targetY = e.touches[0].clientY;
+      } else {
+        targetX = e.clientX;
+        targetY = e.clientY;
+      }
+    }
+
+    window.addEventListener('mousemove', updateLightPosition, { passive: true });
+    window.addEventListener('touchmove', updateLightPosition, { passive: true });
+
+    function animate() {
+      currentX += (targetX - currentX) * 0.08;
+      currentY += (targetY - currentY) * 0.08;
+      light.style.transform = `translate3d(${currentX - 250}px, ${currentY - 250}px, 0)`;
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
 </body>
 </html>
