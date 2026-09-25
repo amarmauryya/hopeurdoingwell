@@ -13,7 +13,7 @@ html, body {
   background-color: #050505;
   color: #f1ebd9;
   font-family: 'Cormorant Garamond', Georgia, serif;
-  overflow: hidden; /* Prevent scrolling, full viewport focus */
+  overflow: hidden; /* Full viewport focus, zero scrolling */
 }
 
 /* Background subtlety */
@@ -30,9 +30,23 @@ body {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  padding: 1.25rem;
+  padding: 1.25rem 1rem;
   position: relative;
   z-index: 1;
+}
+
+/* Top Text: Thin, elegant, subtle soft off-white */
+.top-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  letter-spacing: 0.14em;
+  color: rgba(241, 235, 217, 0.72);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 1.5s ease-out forwards;
 }
 
 /* Note Wrapper: Flexible container that holds full image */
@@ -41,14 +55,14 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 90vw;
-  max-height: 78vh;
-  animation: fadeIn 1.5s ease-out forwards;
+  max-height: 70vh;
+  animation: fadeIn 1.5s ease-out 0.2s backwards;
 }
 
 /* Handwritten Image Rules - Strictly complete, uncropped, centered */
 .note-img {
-  max-width: min(88vw, 480px);
-  max-height: 75vh;
+  max-width: min(86vw, 450px);
+  max-height: 68vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -72,14 +86,14 @@ body {
   letter-spacing: 0.15em;
   color: rgba(241, 235, 217, 0.45);
   text-align: center;
-  animation: captionFade 1.8s ease-out 0.3s backwards;
+  animation: captionFade 1.8s ease-out 0.4s backwards;
 }
 
 /* Smooth Entrance Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
@@ -98,8 +112,12 @@ body {
 
 /* Responsive adjustments for tight vertical screens */
 @media (max-height: 650px) {
+  .top-text {
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
   .note-img {
-    max-height: 70vh;
+    max-height: 62vh;
   }
   .caption {
     margin-top: 0.75rem;
