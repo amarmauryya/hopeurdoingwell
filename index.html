@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Note</title>
+  <!-- Google Fonts: Cormorant Garamond for sophisticated serif caption -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Ambient moving background -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Main centered content -->
+  <main class="page-container">
+    <div class="hero-wrapper">
+      <!-- Soft aura glow behind image -->
+      <div class="glow-aura" aria-hidden="true"></div>
+
+      <!-- Preserved handwritten note container -->
+      <div class="note-card">
+        <img 
+          src="assets/note.jpg" 
+          alt="Handwritten note" 
+          class="note-image"
+          loading="eager"
+        >
+      </div>
+    </div>
+
+    <!-- Minimal serif caption -->
+    <footer class="caption-container">
+      <p class="caption">Some things are better said by hand.</p>
+    </footer>
+  </main>
+
+</body>
+</html>
